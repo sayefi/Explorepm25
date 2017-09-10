@@ -4,12 +4,20 @@
 ## 2008? Using the base plotting system, make a plot showing the total PM2.5 
 ## emission from all sources for each of the years 1999, 2002, 2005, and 2008.
 
-source("readfile.r")
+# source("readfile.r")
 
 library(dplyr)
 
+fileUrl<-"https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2FNEI_data.zip"
 
-NEI<-readfile("NEI")
+dataUrl<-"summarySCC_PM25.rds"
+
+if(!file.exists(dataUrl)){
+     download.file(fileUrl,"input.zip")
+     unzip("input.zip")
+}
+
+NEI<-readRDS(dataUrl)
 
 PM25byYear<-NEI%>% group_by(year)%>%dplyr::summarise(sum(Emissions))
 

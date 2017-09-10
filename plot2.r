@@ -4,12 +4,19 @@
 ## (fips == "24510") from 1999 to 2008? Use the base plotting system to make a 
 ## plot answering this question.
 
-source("readfile.r")
-
 library(dplyr)
 
+fileUrl<-"https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2FNEI_data.zip"
 
-NEI<-readfile("NEI")
+dataUrl<-"summarySCC_PM25.rds"
+
+if(!file.exists(dataUrl)){
+     download.file(fileUrl,"input.zip")
+     unzip("input.zip")
+}
+
+NEI<-readRDS(dataUrl)
+
 
 PM25byYearBultimore<-NEI%>% subset(fips == "24510") %>% group_by(year) %>% dplyr::summarise(sum(Emissions))
 
