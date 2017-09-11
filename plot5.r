@@ -3,8 +3,6 @@
 ## How have emissions from motor vehicle sources changed from 1999–2008 
 ## in Baltimore City?
 
-source("readfile.r")
-
 library(dplyr)
 
 fileUrl<-"https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2FNEI_data.zip"
@@ -58,7 +56,7 @@ title("Motor vehicle related emissions in Bultimore city")
 
 g<- ggplot(NEIBultimoreMotor, aes(x=log(Emissions)))
 g<-g+geom_density(aes(group=year,fill=year),alpha=0.50)
-g<-g+ggtitle("Motor vehicle related emissions in Bultimore city")
+g<-g+ggtitle("Motor vehicle related emissions in Baltimore city")
 g<-g+scale_fill_gradient("year", low="red", high="green")
 print(g)
 

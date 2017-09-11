@@ -50,7 +50,7 @@ g<-ggplot(PM25Bultimore,aes(year,log10(Emissions)))
 g<-g+geom_point(col="red",cex=4,alpha=.3)
 g<-g+facet_grid(.~type)
 g<-g+geom_smooth(method="lm")
-g<-g+ggtitle("PM2.5 in Bultimore by Type")
+g<-g+ggtitle("PM2.5 in Baltimore by Type")
 print(g)
 
 dev.copy(png,"plot3.png")

@@ -26,7 +26,7 @@ names(PM25byYearBultimore)<-c("Year","Total.Emission")
 plot(PM25byYearBultimore$Year,PM25byYearBultimore$Total.Emission,pch=19,
      cex=2,col="blue",
      xlab="Year",ylab="Total Emission (Tons)",
-     main="PM2.5 Emission by Year in Bultimore")
+     main="PM2.5 Emission by Year in Baltimore")
 
 fit<-lm(PM25byYearBultimore$Total.Emission~PM25byYearBultimore$Year)
 

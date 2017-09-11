@@ -29,6 +29,8 @@ NEICoal<-NEI[NEI$SCC %in% CoalSccNo, ]
 
 NEICoal<-NEICoal[NEICoal$Emissions>0,]
 
+NEICoal<-mutate(NEICoal,year=factor(year))
+
 
 # plot(NEICoal$year,NEICoal$Emissions)
 # 
@@ -46,7 +48,7 @@ NEICoal<-NEICoal[NEICoal$Emissions>0,]
 
 g<- ggplot(NEICoal, aes(x=log2(Emissions)))
 g<-g+geom_density(aes(group=year,fill=year),alpha=0.50)
-g<-g+ggtitle("Emissions for Coal combustion related sources")
+g<-g+ggtitle("Emissions from Coal combustion related sources")
 print(g)
 
 dev.copy(png,"plot4.png")
